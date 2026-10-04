@@ -29,33 +29,22 @@
 
 <main id="contenu">
 
-<section class="page-head">
-  <span class="eyebrow">Consultation en visio</span>
-  <h1>Prendre <span class="nowrap">rendez-vous</span></h1>
-  <p>Choisissez votre consultation, puis le créneau qui vous convient dans le calendrier. Le paiement se fait en ligne, de façon sécurisée, au moment de la réservation.</p>
+<section class="tarifs tarifs-tete">
+  <h1>Ma consultation de suivi</h1>
+</section>
 
-  <div class="choices" role="group" aria-label="Type de consultation">
-    <button type="button" class="choice" id="btn-suivi-30" data-cal="sophie-hg9fan/rdv-consultation-de-suivi-30-minutes" aria-pressed="false">
-      <span class="label">Pour continuer</span>
-      <strong>Consultation de suivi</strong>
-      <span class="meta">30 min en visio · 33 €</span>
-    </button>
+<section class="tarifs-cartes">
+  <div class="tarif-cards" style="grid-template-columns: minmax(290px, 440px); justify-content: center;">
+    <div class="tarif-card">
+      <div class="label">Pour continuer</div>
+      <h3>Consultation de suivi</h3>
+      <div class="price">33 €</div>
+      <div class="duration">30 min (en visio)</div>
+      <p class="desc">Pour les familles ayant <strong>déjà fait une première consultation</strong>.<br><br>Un <span class="nowrap">rendez-vous</span> pour <strong>faire le point sur les premiers changements</strong>, <strong>ajuster le plan de sommeil</strong> si besoin, <strong>répondre à vos questions</strong>, et continuer à avancer ensemble vers des nuits plus tranquilles.</p>
+      <a href="https://cal.com/sophie-hg9fan/rdv-consultation-de-suivi-30-minutes" class="btn-outline" target="_blank" rel="noopener">Réserver ce suivi</a>
+    </div>
   </div>
-</section>
-
-<section style="padding-top:0; padding-bottom:20px;">
-  <div class="calendar-zone" id="calendar-zone" aria-live="polite"></div>
-  <p class="calendar-hint" id="calendar-hint">Sélectionnez la consultation <span class="nowrap">ci-dessus</span> pour afficher les disponibilités.</p>
-  <noscript><p class="calendar-hint">Pour réserver sans JavaScript&nbsp;: <a href="https://cal.com/sophie-hg9fan/rdv-consultation-de-suivi-30-minutes">consultation de suivi</a></p></noscript>
-</section>
-
-<section style="padding-top:20px;">
-  <ul class="info-list">
-    <li><strong>La consultation de suivi</strong> est réservée aux familles ayant déjà fait une première consultation. C'est un <span class="nowrap">rendez-vous</span> pour <strong>faire le point sur les premiers changements</strong>, <strong>ajuster le plan de sommeil</strong> si besoin, <strong>répondre à vos questions</strong>, et continuer à avancer ensemble vers des nuits plus tranquilles.</li>
-    <li><strong>Après votre réservation</strong>, vous recevez un <span class="nowrap">e-mail</span> de confirmation avec le lien de la visio, ainsi qu'un questionnaire à remplir avant notre <span class="nowrap">rendez-vous</span> pour que je prépare au mieux notre échange.</li>
-    <li><strong>Une question avant de réserver&nbsp;?</strong> <span class="nowrap">Écrivez-moi</span> à <a href="mailto:contact@latribudesreveurs.fr">contact@latribudesreveurs.fr</a>.</li>
-    <li>Mon accompagnement s'adresse aux enfants en bonne santé, sans trouble du sommeil d'ordre médical et suivis par un professionnel de santé. Mes conseils ne se substituent pas à un avis médical.</li>
-  </ul>
+  <p class="tarif-note"><span class="une-ligne">Mon accompagnement s'adresse aux enfants en bonne santé, sans trouble du sommeil d'ordre médical et suivis par un professionnel de santé.</span><br>Mes conseils ne se substituent en aucun cas à un avis médical.</p>
 </section>
 
 </main>
@@ -71,29 +60,5 @@
   <p class="copyright">© 2026 La Tribu des Rêveurs · Sophie Douesneau, consultante du sommeil des bébés et des enfants</p>
 </footer>
 
-<script>
-  // Le calendrier Cal.com (service tiers) ne se charge qu'après le choix de la
-  // consultation, jamais automatiquement à l'ouverture de la page.
-  (function () {
-    var zone = document.getElementById('calendar-zone');
-    var hint = document.getElementById('calendar-hint');
-    var btn = document.getElementById('btn-suivi-30');
-
-    function afficher() {
-      btn.setAttribute('aria-pressed', 'true');
-      var lien = btn.getAttribute('data-cal');
-      var titre = btn.querySelector('strong').textContent;
-      zone.textContent = '';
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://cal.com/' + lien + '?embed=true&theme=light&layout=month_view';
-      iframe.title = 'Calendrier de réservation : ' + titre;
-      iframe.loading = 'lazy';
-      zone.appendChild(iframe);
-      hint.innerHTML = 'Le calendrier ne s\'affiche pas correctement ? <a href="https://cal.com/' + lien + '" target="_blank" rel="noopener">Ouvrir dans une nouvelle page</a>.';
-    }
-
-    btn.addEventListener('click', afficher);
-  })();
-</script>
 </body>
 </html>
